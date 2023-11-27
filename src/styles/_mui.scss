@@ -1,0 +1,113 @@
+.MuiDataGrid-root {
+  * {
+    outline: none !important;
+  }
+  .MuiDataGrid-columnSeparator {
+    display: none;
+  }
+  .MuiDataGrid-columnHeaderTitle {
+    font-size: 16px;
+  }
+
+  .MuiDataGrid-columnHeader {
+    background-color: var(--color-paper-dark);
+    &:hover {
+      background-color: var(--color-paper-grey);
+    }
+  }
+
+  .MuiDataGrid-columnHeader,
+  .MuiDataGrid-cell {
+    border-color: var(--color-border-main);
+    padding: 12px 16px;
+    font-size: 16px;
+
+    &:last-child {
+      border-right-width: 0px;
+    }
+  }
+
+  .MuiDataGrid-columnHeaderTitleContainer {
+    justify-content: space-between;
+
+    > .MuiDataGrid-iconButtonContainer .MuiSvgIcon-root {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .MuiDataGrid-cell.Pinned {
+    @include tablet {
+      position: sticky;
+      background: var(--color-background-main);
+      z-index: 1;
+      @apply shadow-md;
+    }
+    &.-right {
+      right: 0px;
+    }
+    &.-left {
+      left: 0px;
+    }
+  }
+}
+
+.MuiTextField-root {
+  .MuiInputBase-root.MuiOutlinedInput-root {
+    border-radius: 0px;
+
+    &:hover .MuiOutlinedInput-notchedOutline {
+      border-color: var(--color-primary-main);
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+  }
+}
+
+.MuiTab-root {
+  &.MuiTab-textColorPrimary:hover {
+    background-color: var(--color-paper-dark);
+  }
+  &.Mui-selected {
+    background-color: white;
+  }
+}
+
+.MuiDialog-root {
+  .MuiDialogTitle-root {
+    padding: 24px 24px 12px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .MuiDialogContent-root {
+    padding: 12px 24px;
+  }
+  .MuiDialogActions-root {
+    padding: 12px 24px 24px;
+  }
+}
+
+.MuiPaper-root {
+  &.MuiPaper-elevation1 {
+    @apply shadow-md;
+  }
+  &.MuiPaper-outlined {
+    border-color: var(--color-border-main);
+  }
+}
+
+.MuiButton-root {
+  .MuiLoadingButton-loadingIndicator {
+    position: static;
+    left: 0px;
+    margin-left: 4px;
+  }
+}
+
+.MuiButton-containedPrimary {
+  background-color: var(--color-primary-main);
+}
+
+.MuiButton-containedSecondary {
+  background-color: var(--color-secondary-main);
+}

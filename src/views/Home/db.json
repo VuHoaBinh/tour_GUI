@@ -1,0 +1,76 @@
+{
+  "attractiveTours": [
+    {
+      "id": 1,
+      "name": "Sapa",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/sapa1.jpg",
+      "domain": "NORTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Nha Trang",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/95980815-1024x559.jpg",
+      "domain": "SOUTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Hà Nội",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/thuong_truong_thoi_tiet-10_18_10_725.jpg",
+      "domain": "NORTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Sài Gòn",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/du-lich-sai-gon-cover.jpg",
+      "domain": "SOUTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Đà Lạt",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/thanh-pho-da-lat.jpg",
+      "domain": "SOUTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Cần Thơ",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/1533266023094_1613204-1024x681.jpg",
+      "domain": "SOUTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Đà Nẵng",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/bana-1024x552.jpg",
+      "domain": "SOUTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Đảo Phú Quốc",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/trip8.jpg",
+      "domain": "SOUTH",
+      "price": 200
+    },
+    {
+      "id": 1,
+      "name": "Kinh Thành Huế",
+      "description": "5 ngày 4 đêm",
+      "image": "https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/Khamphahue_Dai-noi-Hue_Lau-Ngu-phung.jpg",
+      "domain": "MID",
+      "price": 200
+    }
+  ]
+}
