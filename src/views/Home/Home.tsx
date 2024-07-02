@@ -42,17 +42,17 @@ const Home = () => {
               >
                 <div
                   style={{
-                    backgroundImage: `url(https://mauweb.monamedia.net/lets-travel/wp-content/uploads/2018/12/Sapa.jpg)`,
+                    backgroundImage: `url(${item.image})`,
                     transition: 'transform 0.5s',
                   }}
-                  className='scale-95 transform rounded-xl bg-cover bg-center bg-no-repeat py-12 pl-3 font-bold text-[#FFF] hover:scale-100'
+                  className='scale-95 transform rounded-xl bg-cover bg-center bg-no-repeat py-12 pl-3 font-bold text-[#FFFFFF] hover:scale-100'
                 >
                   <div className='translate-y-10'>
                     <p className='text-xl font-bold' data-value='place'>
                       {item.name}
                     </p>
                     <div className='py-2 text-sm'>
-                      <p className='text-[#FFFFFF]'>{item.description}</p>
+                      {/* <p className='text-[#FFFFFF]'>{item.description}</p> */}
                       <p className='text-[#FFFFFF]'>{formatNumber(item.price)} / người</p>
                     </div>
                   </div>

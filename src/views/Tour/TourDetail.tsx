@@ -53,7 +53,7 @@ const TourDetail = () => {
             </div>
             <div className='pl-2 lg:basis-2/5'>
               <p className='text-[28px] font-extrabold'>{data?.name}</p>
-              <p className='mb-2 text-2xl font-extrabold'>{formatNumber(data?.price)} đồng</p>
+              <p className='mb-2 text-2xl font-extrabold'>{formatNumber(data?.price)} đồng/ Người</p>
               <p className='mb-2'>{data?.description}</p>
               <button
                 type='button'
@@ -87,7 +87,7 @@ const TourDetail = () => {
             </TabPanel>
             <TabPanel className='border-2 border-[#ececec]' value='2'>
               <div className='flex text-sm'>
-                <div className='basis-2/5 font-bold'>LOẠI GIƯỜNG</div>
+                <div className='basis-2/5 font-bold'>Không có.</div>
                 <div className='flex basis-3/5'></div>
               </div>
             </TabPanel>
@@ -96,7 +96,7 @@ const TourDetail = () => {
               <p className='mb-8'>Chưa có đánh giá nào.</p>
               <Container maxWidth='lg' className='border-2 border-[#FF6600] py-6'>
                 <p className='mb-[10px] text-xl font-extrabold'>
-                  Hãy là người đầu tiên nhận xét “Đặt Phòng Khách Sạn Grand Hồ Tràm 5 Sao”
+                  Feedback của bạn là niềm vui hạnh của chúng tôi “Đặt Tour SUNNY TRAVEL”
                 </p>
                 <p className='mb-2 text-sm font-extrabold'>Đánh giá của bạn</p>
                 <Rating precision={0.5} />

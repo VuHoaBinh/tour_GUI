@@ -57,7 +57,6 @@ const PopupCreateOrder = ({ onClose, item }: PopupProps) => {
               />
             </FormControl>
           </Grid>
-
           <Grid item sm={12}>
             <FormControl fullWidth>
               <label className='mb-3 text-xs font-medium text-secondary-light'>Tên của bạn</label>
@@ -66,6 +65,10 @@ const PopupCreateOrder = ({ onClose, item }: PopupProps) => {
                 defaultValue=''
                 rules={{
                   required: 'Tên không được để trống',
+                  pattern: {
+                    value: /^[A-Z]{1}[^\d@#!$%^&*()]*$/,
+                    message: 'Tên viết hoa chữ cái đầu, không chứa ký tự số và ký tự đặc biệt',
+                  },
                 }}
                 control={control}
                 render={({ field, fieldState: { error } }) => (
@@ -74,7 +77,6 @@ const PopupCreateOrder = ({ onClose, item }: PopupProps) => {
               />
             </FormControl>
           </Grid>
-
           <Grid item sm={12}>
             <FormControl fullWidth>
               <label className='mb-3 text-xs font-medium text-secondary-light'>Email</label>
@@ -83,6 +85,10 @@ const PopupCreateOrder = ({ onClose, item }: PopupProps) => {
                 defaultValue=''
                 rules={{
                   required: 'Email không được để trống',
+                  pattern: {
+                    value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                    message: 'Email không hợp lệ',
+                  },
                 }}
                 control={control}
                 render={({ field, fieldState: { error } }) => (
@@ -94,10 +100,17 @@ const PopupCreateOrder = ({ onClose, item }: PopupProps) => {
 
           <Grid item sm={12}>
             <FormControl fullWidth>
-              <label className='mb-3 text-xs font-medium text-secondary-light'>Tiêu đề</label>
+              <label className='mb-3 text-xs font-medium text-secondary-light'>Số điện thoại</label>
               <Controller
                 name='title'
                 defaultValue=''
+                rules={{
+                  required: 'Số điện thoại không được để trống',
+                  pattern: {
+                    value: /^(?:\+?84|0)[3|5|7|8|9]\d{8}$/,
+                    message: 'Số điện thoại không hợp lệ',
+                  },
+                }}
                 control={control}
                 render={({ field, fieldState: { error } }) => (
                   <TextField {...field} fullWidth error={!!error} helperText={error?.message} />
@@ -105,10 +118,9 @@ const PopupCreateOrder = ({ onClose, item }: PopupProps) => {
               />
             </FormControl>
           </Grid>
-
           <Grid item sm={12}>
             <FormControl fullWidth>
-              <label className='mb-3 text-xs font-medium text-secondary-light'>Nội dung</label>
+              <label className='mb-3 text-xs font-medium text-secondary-light'>Chú thích</label>
               <Controller
                 name='description'
                 defaultValue=''
