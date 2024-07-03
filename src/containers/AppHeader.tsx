@@ -21,96 +21,89 @@ const AppHeader = () => {
   const [modalIsOpenSign, setModalIsOpenSign] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [fullName, setFullName] = useState('');
-  const [value, setValue] = useState<any>(null);
+   const [passwordConfirm, setPasswordConfirm] = useState('');
+   const [fullName, setFullName] = useState('');
+   const [value, setValue] = useState<any>(null);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+   const openModal = () => {
+     setModalIsOpen(true);
+   };
 
-  const openModalSign = () => {
-    setModalIsOpenSign(true);
-  };
+   const openModalSign = () => {
+     setModalIsOpenSign(true);
+   };
 
-  const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
-    const email: string = e.target.value;
+   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
+     const email: string = e.target.value;
+     setEmail(email);
+   };
+   const onChangePasswordConfirm = (e: ChangeEvent<HTMLInputElement>) => {
+     const passwordConfirm: string = e.target.value;
+     setPasswordConfirm(passwordConfirm);
+   };
+   const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
+     const password: string = e.target.value;
+     setPassword(password);
+   };
 
-    // const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+   const onChangeFullName = (e: ChangeEvent<HTMLInputElement>) => {
+     const fullName: string = e.target.value;
+     setFullName(fullName);
+   };
 
-    // if (emailPattern.test(email)) {
-    setEmail(email);
-    // } else {
-    //   alert('Invalid email format');
-    // }
-  };
-  const onChangePasswordConfirm = (e: ChangeEvent<HTMLInputElement>) => {
-    const passwordConfirm: string = e.target.value;
+   const onSubmitFormSignUp = async (e: React.FormEvent) => {
+     e.preventDefault();
 
-    // if (password === passwordConfirm) {
-    //   setPassword(password);
-    // } else {
-    //   alert('Invalid email format');
-    // }
-  };
-  const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
-    const password: string = e.target.value;
+     if (password.length >= 6) {
+       setPassword(password);
+     } else {
+       alert('Invalid password format: less 6 charater');
+       return;
+     }
+     if (password === passwordConfirm) {
+       setPassword(password);
+     } else {
+       alert('Invalid password Confirm');
+       return;
+     }
+     const namePattern = /^[^\d]+$/;
+     if (namePattern.test(fullName)) {
+       setFullName(fullName);
+     } else {
+       alert('Invalid Name format');
+       return;
+     }
+     try {
+       const user = await AuthService.register(email, password);
+       await AuthService.update(fullName);
+       console.log('Đăng kí user:', user);
+     } catch (error) {
+       console.log('Loi ne:', error);
+       alert('Lỗi: Bị Trùng');
+     }
+     setModalIsOpenSign(false);
+   };
 
-    // if (password.length >= 6) {
-    setPassword(password);
-    // } else {
-    //   alert('Invalid password format: less 6 charater');
-    // }
-  };
+   const onSubmitFormLogIn = async (e: React.FormEvent) => {
+     e.preventDefault();
+     try {
+       const userLogin = await AuthService.login(email, password);
+       console.log('Đăng nhập thành công: ', userLogin);
+       setValue(userLogin);
+     } catch (error) {
+       console.log('Loi ne:', error);
+       alert('Lỗi: Không đúng tài khoản');
+     }
+     setModalIsOpen(false);
+   };
 
-  const onChangeFullName = (e: ChangeEvent<HTMLInputElement>) => {
-    const fullName: string = e.target.value;
+   const onClickSignOut = async (e: React.FormEvent) => {
+     e.preventDefault();
+     await AuthService.logout();
+     window.location.reload();
+   };
 
-    // const [firstName, lastName] = fullName.trim().split(' ');
 
-    // const nameRequirements = {
-    //   minLength: 2,
-    //   allowOnlyLetters: /^[a-zA-Z]+$/,
-    // };
-
-    // if (
-    //   firstName?.length >= nameRequirements.minLength &&
-    //   lastName?.length >= nameRequirements.minLength &&
-    //   nameRequirements.allowOnlyLetters.test(firstName) &&
-    //   nameRequirements.allowOnlyLetters.test(lastName)
-    // ) {
-    setFullName(fullName);
-    // } else {
-    //   alert('Invalid Name format');
-    // }
-  };
-  const onSubmitFormSignUp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const user = await AuthService.register(email, password);
-      await AuthService.update(fullName);
-      console.log('Đăng kí user:', user);
-    } catch (error) {
-      console.log('Loi ne:', error);
-    }
-    setModalIsOpen(false);
-  };
-
-  const onSubmitFormLogIn = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      const userLogin = await AuthService.login(email, password);
-      console.log('Đăng nhập thành công: ', userLogin);
-      setValue(userLogin);
-    } catch (error) {
-      console.log('Loi ne:', error);
-    }
-    setModalIsOpen(false);
-  };
-  const onClickSignOut = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await AuthService.logout();
-    window.location.reload();
-  };
   return (
     <>
       <Drawer
